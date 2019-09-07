@@ -1,0 +1,64 @@
+{
+  "quotes": [
+    {
+      "id": 1,
+      "author": "Billy Connolly",
+      "body": "Before you judge a man, walk a mile in his shoes. After that who cares?... He’s a mile away and you’ve got his shoes!",
+      "source": "http://billyconnolly.com/"
+    },
+    {
+      "id": 2,
+      "author": "Jeff Sickel",
+      "body": "Deleted code is debugged code.",
+      "source": "http://www.defprogramming.com/quotes-by/jeff-sickel/"
+    },
+    {
+      "id": 3,
+      "author": "Ken Thompson",
+      "body": "When in doubt, use brute force.",
+      "source": "https://en.wikipedia.org/wiki/Ken_Thompson"
+    },
+    {
+      "id": 4,
+      "author": "Donald Knuth",
+      "body": "We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%.",
+      "source": "https://www-cs-faculty.stanford.edu/~knuth/"
+    },
+    {
+      "id": 5,
+      "author": "Fred Brooks",
+      "body": "What one programmer can do in one month, two programmers can do in two months.",
+      "source": "https://history.computer.org/pioneers/brooks.html"
+    },
+    {
+      "id": 6,
+      "author": "Poul Anderson",
+      "body": "I have yet to see any problem, however complicated, which when looked at in the right way, did not become more complicated.",
+      "source": "https://en.wikipedia.org/wiki/Poul_Anderson"
+    },
+    {
+      "id": 7,
+      "author": "Brian Kernighan",
+      "body": "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
+      "source": "https://www.cs.princeton.edu/~bwk/"
+    },
+    {
+      "id": 8,
+      "author": "Edsger W. Dijkstra",
+      "body": "Testing can be a very effective way to show the presence of bugs, but it is hopelessly inadequate for showing their absence.",
+      "source": "https://en.wikipedia.org/wiki/Edsger_W._Dijkstra"
+    },
+    {
+      "id": 9,
+      "author": "Henri Petroski",
+      "body": "The most amazing achievement of the computer software industry is its continuing cancellation of the steady and staggering gains made by the computer hardware industry.",
+      "source": "https://cee.duke.edu/faculty/henry-petroski"
+    },
+    {
+      "id": 10,
+      "author": "Linus Torvalds",
+      "body": "I'm doing a free operating system (just a hobby, won't be big and professional like GNU).",
+      "source": "https://en.wikipedia.org/wiki/Linus_Torvalds"
+    }
+  ]
+}
