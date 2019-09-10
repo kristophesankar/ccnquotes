@@ -4,8 +4,7 @@ import Nav from "react-bootstrap/Nav"
 import Form from "react-bootstrap/Form"
 import FormControl from "react-bootstrap/FormControl"
 
-class NavigationBar extends Component {
-  render() {
+ const NavigationBar = () => {
     return (
       <Navbar bg="light" expand="lg">
         <Navbar.Brand href="#home">CCN Quotes</Navbar.Brand>
@@ -21,7 +20,6 @@ class NavigationBar extends Component {
         </Navbar.Collapse>
       </Navbar>
     )
-  }
 }
 
 export default NavigationBar
