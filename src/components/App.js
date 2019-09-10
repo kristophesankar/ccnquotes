@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { handleInitialData } from "../actions/index"
 import NavigationBar from "./NavigationBar"
-import QuoteList from "./QuoteList"
+import MainContainer from "./MainContainer"
 
 class App extends Component {
   componentDidMount() {
@@ -13,9 +13,9 @@ class App extends Component {
     return (
       <div>
         <NavigationBar />
-        <QuoteList />
+        <MainContainer />
       </div>
-      )
+    )
   }
 }
 
