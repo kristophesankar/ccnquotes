@@ -1,3 +1,10 @@
+# Developer Notes
+
+- Code Style: [Javascript Standard Style](https://standardjs.com/)
+- State Management: [Redux](https://redux.js.org/)
+- CSS Library: [React Bootstrap](https://react-bootstrap.github.io/)
+- API Calls: [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+
 # CCN Quotes
 
 Thanks for your interest in working with us! This little assignment is here to assess your React knowledge, design skills, and testing style.
