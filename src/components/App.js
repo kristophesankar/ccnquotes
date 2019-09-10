@@ -1,9 +1,10 @@
 import React, { Component } from "react"
-import { getInitialData } from "../utils/api"
+import { connect } from "react-redux"
+import { handleInitialData } from "../actions/index"
 
-class CCNQuotes extends Component {
+class App extends Component {
   componentDidMount() {
-    getInitialData().then(data => console.log(data))
+    this.props.dispatch(handleInitialData())
   }
 
   render() {
@@ -11,4 +12,4 @@ class CCNQuotes extends Component {
   }
 }
 
-export default CCNQuotes
+export default connect()(App)
