@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { handleInitialData } from "../actions/index"
+import NavigationBar from "./NavigationBar"
 
 class App extends Component {
   componentDidMount() {
@@ -8,7 +9,7 @@ class App extends Component {
   }
 
   render() {
-    return <h1>CCN Quotes</h1>
+    return <NavigationBar />
   }
 }
 
