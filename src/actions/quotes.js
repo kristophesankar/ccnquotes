@@ -1,5 +1,5 @@
 export const GET_QUOTES = "GET_QUOTES"
-export const SET_SELECTED_QUOTE = "SET_SELECTED_QUOTE"
+export const GET_QUOTES_ERROR = "GET_QUOTES_ERROR"
 
 export function getQuotes(quotes) {
   return {
@@ -8,9 +8,10 @@ export function getQuotes(quotes) {
   }
 }
 
-export function setSelectedQuote(quoteId) {
+export function getQuotesError(quotesError) {
   return {
-    type: SET_SELECTED_QUOTE,
-    quoteId
+    type: GET_QUOTES_ERROR,
+    quotesError
   }
 }
+

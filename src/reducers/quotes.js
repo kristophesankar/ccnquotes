@@ -1,4 +1,4 @@
-import { GET_QUOTES, SET_SELECTED_QUOTE } from "../actions/quotes"
+import { GET_QUOTES, GET_QUOTES_ERROR } from "../actions/quotes"
 
 export default function quotes(state = {}, action) {
   switch (action.type) {
@@ -7,10 +7,10 @@ export default function quotes(state = {}, action) {
         ...state,
         ...action.quotes
       }
-    case SET_SELECTED_QUOTE:
+    case GET_QUOTES_ERROR:
       return {
         ...state,
-        selectedQuote: action.quoteId
+        quotesError: action.quotesError
       }
     default:
       return state
