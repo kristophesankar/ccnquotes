@@ -1,4 +1,5 @@
 import React from "react"
+import { connect } from "react-redux"
 import QuoteList from "./QuoteList"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
@@ -17,10 +18,16 @@ const MainContainer = props => {
         <Col sm={6}>
           <QuoteList />
         </Col>
-        <Col sm={6}>Card Goes here</Col>
+        <Col sm={6}>{props.selectedQuote.id}</Col>
       </Row>
     </Container>
   )
 }
 
-export default MainContainer
+function mapStateToProps({ selectedQuote }) {
+  return {
+    selectedQuote
+  }
+}
+
+export default connect(mapStateToProps)(MainContainer)
