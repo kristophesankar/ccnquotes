@@ -13,17 +13,17 @@ const isEmpty = obj => {
 
 const AllQuotesContainer = props => {
   return (
-    <Container>
+    <Container id="allQuotesContainer">
       <Row>
         <Col sm={12}>
           <Title>All Quotes</Title>
         </Col>
       </Row>
       <Row>
-        <Col sm={6}>
-          <QuoteList />
+        <Col id="quoteListColumn" sm={6}>
+          <QuoteList className="qL" />
         </Col>
-        <Col sm={6}>
+        <Col id="quoteCardColumn" sm={6}>
           {isEmpty(props.selectedQuote) ? (
             <QuoteCard quoteId={1} />
           ) : (
