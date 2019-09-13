@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import QuoteList from "./QuoteList"
+import QuoteCard from "./QuoteCard"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
@@ -18,7 +19,9 @@ const AllQuotesContainer = props => {
         <Col sm={6}>
           <QuoteList />
         </Col>
-        <Col sm={6}>{props.selectedQuote.id}</Col>
+        <Col sm={6}>
+          <QuoteCard quoteId={1} />
+        </Col>
       </Row>
     </Container>
   )
