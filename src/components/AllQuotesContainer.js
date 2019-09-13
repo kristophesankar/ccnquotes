@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import { Title } from "../styles/styles"
 
-const MainContainer = props => {
+const AllQuotesContainer = props => {
   return (
     <Container>
       <Row>
@@ -30,4 +30,4 @@ function mapStateToProps({ selectedQuote }) {
   }
 }
 
-export default connect(mapStateToProps)(MainContainer)
+export default connect(mapStateToProps)(AllQuotesContainer)
