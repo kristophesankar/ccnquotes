@@ -7,6 +7,10 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import { Title } from "../styles/styles"
 
+const isEmpty = obj => {
+  return Object.getOwnPropertyNames(obj).length === 0
+}
+
 const AllQuotesContainer = props => {
   return (
     <Container>
@@ -20,7 +24,11 @@ const AllQuotesContainer = props => {
           <QuoteList />
         </Col>
         <Col sm={6}>
-          <QuoteCard quoteId={1} />
+          {isEmpty(props.selectedQuote) ? (
+            <QuoteCard quoteId={1} />
+          ) : (
+            <QuoteCard quoteId={props.selectedQuote.id} />
+          )}
         </Col>
       </Row>
     </Container>
