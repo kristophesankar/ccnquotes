@@ -7,7 +7,7 @@ describe("Navigation Component", () => {
     cy.get("nav")
   })
 
-  it("Should show the app title", () => {
+  it("Should show the App title", () => {
     cy.get("nav").contains("CCN Quotes")
   })
 })
@@ -57,11 +57,11 @@ describe("All Quotes Page", () => {
     expect(cy.get("#entryBody")).to.not.equal("undefined")
   })
 
-  it("Should show QuoteCard Author", () => {
+  it("Should show QuoteCard author", () => {
     expect(cy.get("#entryAuthor")).to.not.equal("undefined")
   })
 
-  it("Should show QuoteCard Source", () => {
+  it("Should show QuoteCard source", () => {
     expect(cy.get("#entrySource")).to.not.equal("undefined")
   })
 })
