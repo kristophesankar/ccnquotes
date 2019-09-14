@@ -19,7 +19,8 @@ class QuoteList extends Component {
     const { quotes } = this.props
     return (
       <div>
-        {typeof quotes.quotesError === "undefined" ? (
+        {Object.values(quotes).length > 0 &&
+        typeof quotes.quotesError === "undefined" ? (
           Object.values(quotes).map(quote => (
             <Card className="m-2 quoteListItem" key={`card-${quote.id}`}>
               <Card.Body className="p-2">
@@ -36,9 +37,16 @@ class QuoteList extends Component {
             </Card>
           ))
         ) : typeof quotes.quotesError !== "undefined" ? (
-          <div> {`${quotes.quotesError}`} </div>
+          <Card>
+            <Card.Body>
+              Oops! There seems to be a problem...
+              {`${quotes.quotesError.message}.`}
+            </Card.Body>
+          </Card>
         ) : (
-          <div>Sorry :( No Entries Saved</div>
+          <Card>
+            <Card.Body> Sorry...We didn't find any quotes.</Card.Body>
+          </Card>
         )}
       </div>
     )
