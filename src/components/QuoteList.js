@@ -19,10 +19,9 @@ class QuoteList extends Component {
     const { quotes } = this.props
     return (
       <div>
-        {typeof quotes.quotesError !== undefined &&
-        Object.values(quotes).length > 0 ? (
+        {typeof quotes.quotesError === "undefined" ? (
           Object.values(quotes).map(quote => (
-            <Card className="m-2" key={`card-${quote.id}`}>
+            <Card className="m-2 quoteListItem" key={`card-${quote.id}`}>
               <Card.Body className="p-2">
                 <TruncatedText>{quote.body}</TruncatedText>
                 <button
@@ -36,7 +35,7 @@ class QuoteList extends Component {
               </Card.Body>
             </Card>
           ))
-        ) : typeof quotes.quotesError !== undefined ? (
+        ) : typeof quotes.quotesError !== "undefined" ? (
           <div> {`${quotes.quotesError}`} </div>
         ) : (
           <div>Sorry :( No Entries Saved</div>
