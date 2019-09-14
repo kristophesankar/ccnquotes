@@ -25,8 +25,10 @@ describe("All Quotes Page", () => {
     cy.get("#quoteListColumn")
   })
 
-  it("Should show QuoteList items", () => {
-    cy.get("#quoteListColumn").children()
+  it("Should render QuoteList items or placeholders", () => {
+    cy.get("#quoteListColumn")
+      .children()
+      .find(".quoteListItem")
   })
 
   it("Should show QuoteList Card content", () => {

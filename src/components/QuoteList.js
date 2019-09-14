@@ -37,14 +37,14 @@ class QuoteList extends Component {
             </Card>
           ))
         ) : typeof quotes.quotesError !== "undefined" ? (
-          <Card>
+          <Card className="m-2 quoteListItem">
             <Card.Body>
               Oops! There seems to be a problem...
               {`${quotes.quotesError.message}.`}
             </Card.Body>
           </Card>
         ) : (
-          <Card>
+          <Card className="m-2 quoteListItem">
             <Card.Body> Sorry...We didn't find any quotes.</Card.Body>
           </Card>
         )}
