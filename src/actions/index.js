@@ -1,5 +1,5 @@
-import { getInitialData } from "../utils/api"
-import { getQuotes, getQuotesError } from "../actions/quotes"
+import { getInitialData, createNewQuote } from "../utils/api"
+import { getQuotes, getQuotesError, createQuote } from "../actions/quotes"
 import { setSelectedQuote } from "../actions/selectedQuote"
 
 export function handleInitialData() {
@@ -15,5 +15,15 @@ export function handleInitialData() {
 export function handleSetSelectedQuote(quoteId) {
   return dispatch => {
     dispatch(setSelectedQuote(quoteId))
+  }
+}
+
+export function handleSubmitQuote(data) {
+  return dispatch => {
+    return getInitialData()
+      .then(quotes => {
+        createNewQuote(data).then(response => dispatch(createQuote(response)))
+      })
+      .catch(error => dispatch(getQuotesError(error)))
   }
 }

@@ -1,8 +1,10 @@
 import React, { Component } from "react"
+import { connect } from "react-redux"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
+import { handleSubmitQuote } from "../actions/index"
 
 class CreateQuoteForm extends Component {
   state = {
@@ -27,6 +29,11 @@ class CreateQuoteForm extends Component {
     this.setState({
       source: event.target.value
     })
+  }
+
+  handleOnSubmit = event => {
+    event.preventDefault()
+    this.props.dispatch(handleSubmitQuote(this.state))
   }
 
   render() {
@@ -66,7 +73,12 @@ class CreateQuoteForm extends Component {
             <Button variant="primary" className="m-1" type="">
               Back
             </Button>
-            <Button variant="primary" className="m-1" type="submit">
+            <Button
+              variant="primary"
+              className="m-1"
+              onClick={this.handleOnSubmit}
+              type="submit"
+            >
               Submit
             </Button>
           </Col>
@@ -76,4 +88,4 @@ class CreateQuoteForm extends Component {
   }
 }
 
-export default CreateQuoteForm
+export default connect()(CreateQuoteForm)

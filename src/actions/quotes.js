@@ -1,10 +1,18 @@
 export const GET_QUOTES = "GET_QUOTES"
 export const GET_QUOTES_ERROR = "GET_QUOTES_ERROR"
+export const CREATE_QUOTE = "CREATE_QUOTE"
 
 export function getQuotes(quotes) {
   return {
     type: GET_QUOTES,
     quotes
+  }
+}
+
+export function createQuote(quote) {
+  return {
+    type: CREATE_QUOTE,
+    quote
   }
 }
 
