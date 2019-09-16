@@ -72,12 +72,12 @@ class CreateQuoteForm extends Component {
 
         <Row className="justify-content-center">
           <Col className="text-center" sm={6}>
-            <Button variant="primary" className="m-1" type="">
+            <Button variant="primary" className="m-1 backButton" type="">
               Back
             </Button>
             <Button
               variant="primary"
-              className="m-1"
+              className="m-1 submitButton"
               onClick={this.handleOnSubmit}
               type="submit"
             >
