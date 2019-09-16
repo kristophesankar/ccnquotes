@@ -6,12 +6,17 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import { handleSubmitQuote } from "../actions/index"
 import { withRouter } from "react-router-dom"
+import toast from "toasted-notes"
+import "toasted-notes/src/styles.css";
 
 class CreateQuoteForm extends Component {
   state = {
     body: "",
     author: "",
-    source: ""
+    source: "",
+    bodyError: "You did not enter any quote in.",
+    authorError: "You did not enter any author in.",
+    sourceError: "You did not enter any source in."
   }
 
   handleOnChangeBody = event => {
@@ -35,8 +40,36 @@ class CreateQuoteForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault()
     const { history } = this.props
-    this.props.dispatch(handleSubmitQuote(this.state, history))
+    const { body, author, source, bodyError, authorError, sourceError } = this.state
+    let error = false;
+
+    if (body === "") {
+      toast.notify(bodyError,{
+        position: "top-right", // top-left, top, top-right, bottom-left, bottom, bottom-right
+      })
+      error = true
+    }
+
+    if (author === "") {
+      toast.notify(authorError,{
+        position: "top-right", // top-left, top, top-right, bottom-left, bottom, bottom-right
+      })
+      error = true
+    }
+
+    if (source === "") {
+      toast.notify(sourceError,{
+        position: "top-right", // top-left, top, top-right, bottom-left, bottom, bottom-right
+      })
+      error = true
+    }
+
+    if(!error) {
+      this.props.dispatch(handleSubmitQuote({ body, author, source }, history))
+    }
+
   }
+
 
   render() {
     const { body, author, source } = this.state
@@ -50,7 +83,9 @@ class CreateQuoteForm extends Component {
             onChange={this.handleOnChangeBody}
             value={body}
           />
+
         </Form.Group>
+
 
         <Form.Group controlId="formQuoteAuthor">
           <Form.Control
