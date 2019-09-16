@@ -12,10 +12,10 @@ const NavigationBar = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <Nav.Link as={NavLink} to="/">
+          <Nav.Link className="showAllLink" as={NavLink} to="/">
             Show all
           </Nav.Link>
-          <Nav.Link as={NavLink} to="/create">
+          <Nav.Link className="createLink" as={NavLink} to="/create">
             Add +
           </Nav.Link>
         </Nav>
