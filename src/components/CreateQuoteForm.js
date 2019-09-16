@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import { handleSubmitQuote } from "../actions/index"
+import { withRouter } from "react-router-dom"
 
 class CreateQuoteForm extends Component {
   state = {
@@ -33,7 +34,8 @@ class CreateQuoteForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault()
-    this.props.dispatch(handleSubmitQuote(this.state))
+    const { history } = this.props
+    this.props.dispatch(handleSubmitQuote(this.state, history))
   }
 
   render() {
@@ -88,4 +90,10 @@ class CreateQuoteForm extends Component {
   }
 }
 
-export default connect()(CreateQuoteForm)
+function mapStateToProps({ quotes }) {
+  return {
+    quotes
+  }
+}
+
+export default connect(mapStateToProps)(withRouter(CreateQuoteForm))

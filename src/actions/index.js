@@ -18,11 +18,14 @@ export function handleSetSelectedQuote(quoteId) {
   }
 }
 
-export function handleSubmitQuote(data) {
+export function handleSubmitQuote(data, history) {
   return dispatch => {
     return getInitialData()
       .then(quotes => {
-        createNewQuote(data).then(response => dispatch(createQuote(response)))
+        createNewQuote(data).then(response => {
+          dispatch(createQuote(response))
+          history.push(`/quote/${response.id}`)
+        })
       })
       .catch(error => dispatch(getQuotesError(error)))
   }
