@@ -53,7 +53,7 @@ describe("All Quotes Page", () => {
           .find("p") // Should have preview text
         cy.get($el)
           .children()
-          .find("button") // Should have preview button
+          .find("button") // Should have edit button
       })
   })
 

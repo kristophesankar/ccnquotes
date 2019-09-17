@@ -1,8 +1,12 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import Card from "react-bootstrap/Card"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
+import Button from "react-bootstrap/Button"
 import { TruncatedText } from "../styles/styles"
 import { handleSetSelectedQuote } from "../actions/index"
+import { withRouter } from "react-router-dom"
 
 class QuoteList extends Component {
   state = {
@@ -16,23 +20,36 @@ class QuoteList extends Component {
   }
 
   render() {
-    const { quotes } = this.props
+    const { quotes, history } = this.props
     return (
       <div>
         {Object.values(quotes).length > 0 &&
         typeof quotes.quotesError === "undefined" ? (
           Object.values(quotes).map(quote => (
-            <Card className="m-2 quoteListItem" key={`card-${quote.id}`}>
+            <Card
+              className="m-2 quoteListItem"
+              key={`card-${quote.id}`}
+              onClick={() => {
+                this.handleSelection(quote.id)
+              }}
+            >
               <Card.Body className="p-2">
-                <TruncatedText>{quote.body}</TruncatedText>
-                <button
-                  key={`btn-${quote.id}`}
-                  onClick={() => {
-                    this.handleSelection(quote.id)
-                  }}
-                >
-                  Preview
-                </button>
+                <Row>
+                  <Col sm={7}>
+                    <TruncatedText>{quote.body}</TruncatedText>
+                  </Col>
+                  <Col className="pull-right" sm={5}>
+                    <Button
+                      className="m-1"
+                      key={`edit-btn-${quote.id}`}
+                      onClick={() => {
+                        history.push(`/quote/${quote.id}`)
+                      }}
+                    >
+                      Edit
+                    </Button>
+                  </Col>
+                </Row>
               </Card.Body>
             </Card>
           ))
@@ -59,4 +76,4 @@ function mapStateToProps({ quotes }) {
   }
 }
 
-export default connect(mapStateToProps)(QuoteList)
+export default connect(mapStateToProps)(withRouter(QuoteList))
