@@ -1,4 +1,9 @@
-import { GET_QUOTES, GET_QUOTES_ERROR, CREATE_QUOTE } from "../actions/quotes"
+import {
+  GET_QUOTES,
+  GET_QUOTES_ERROR,
+  CREATE_QUOTE,
+  UPDATE_QUOTE
+} from "../actions/quotes"
 
 export default function quotes(state = {}, action) {
   switch (action.type) {
@@ -9,10 +14,17 @@ export default function quotes(state = {}, action) {
       }
     case CREATE_QUOTE:
       const { quote } = action
-
       return {
         ...state,
         [Object.values(state).length]: quote
+      }
+    case UPDATE_QUOTE:
+      const key = Object.entries(state).filter(entry => {
+        return entry[1].id === action.quote.id
+      })
+      return {
+        ...state,
+        [key[0][0]]: action.quote
       }
     case GET_QUOTES_ERROR:
       return {
