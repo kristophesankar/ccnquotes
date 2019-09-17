@@ -1,5 +1,14 @@
-import { getInitialData, createNewQuote } from "../utils/api"
-import { getQuotes, getQuotesError, createQuote } from "../actions/quotes"
+import {
+  getInitialData,
+  createNewQuote,
+  updateExistingQuote
+} from "../utils/api"
+import {
+  getQuotes,
+  getQuotesError,
+  createQuote,
+  updateQuote
+} from "../actions/quotes"
 import { setSelectedQuote } from "../actions/selectedQuote"
 
 export function handleInitialData() {
@@ -15,6 +24,14 @@ export function handleInitialData() {
 export function handleSetSelectedQuote(quoteId) {
   return dispatch => {
     dispatch(setSelectedQuote(quoteId))
+  }
+}
+
+export function handleUpdateQuote(quote) {
+  return dispatch => {
+    updateExistingQuote(quote).then(response => {
+      dispatch(updateQuote(response))
+    })
   }
 }
 
