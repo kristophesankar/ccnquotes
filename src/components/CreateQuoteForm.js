@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col"
 import { handleSubmitQuote } from "../actions/index"
 import { withRouter } from "react-router-dom"
 import toast from "toasted-notes"
-import "toasted-notes/src/styles.css";
+import "toasted-notes/src/styles.css"
 
 class CreateQuoteForm extends Component {
   state = {
@@ -37,42 +37,54 @@ class CreateQuoteForm extends Component {
     })
   }
 
+  handleOnBack = event => {
+    event.preventDefault()
+    const { history } = this.props
+    history.push(`/`)
+  }
+
   handleOnSubmit = event => {
     event.preventDefault()
     const { history } = this.props
-    const { body, author, source, bodyError, authorError, sourceError } = this.state
-    let error = false;
+    const {
+      body,
+      author,
+      source,
+      bodyError,
+      authorError,
+      sourceError
+    } = this.state
+    let error = false
 
     if (body === "") {
-      toast.notify(bodyError,{
-        position: "top-right", // top-left, top, top-right, bottom-left, bottom, bottom-right
+      toast.notify(bodyError, {
+        position: "top-right"
       })
       error = true
     }
 
     if (author === "") {
-      toast.notify(authorError,{
-        position: "top-right", // top-left, top, top-right, bottom-left, bottom, bottom-right
+      toast.notify(authorError, {
+        position: "top-right"
       })
       error = true
     }
 
     if (source === "") {
-      toast.notify(sourceError,{
-        position: "top-right", // top-left, top, top-right, bottom-left, bottom, bottom-right
+      toast.notify(sourceError, {
+        position: "top-right"
       })
       error = true
     }
 
-    if(!error) {
+    if (!error) {
       this.props.dispatch(handleSubmitQuote({ body, author, source }, history))
     }
-
   }
-
 
   render() {
     const { body, author, source } = this.state
+    const { history } = this.props
     return (
       <Form>
         <Form.Group controlId="formQuote">
@@ -83,9 +95,7 @@ class CreateQuoteForm extends Component {
             onChange={this.handleOnChangeBody}
             value={body}
           />
-
         </Form.Group>
-
 
         <Form.Group controlId="formQuoteAuthor">
           <Form.Control
@@ -107,7 +117,12 @@ class CreateQuoteForm extends Component {
 
         <Row className="justify-content-center">
           <Col className="text-center" sm={6}>
-            <Button variant="primary" className="m-1 backButton" type="">
+            <Button
+              variant="primary"
+              className="m-1 backButton"
+              onClick={this.handleOnBack}
+              type=""
+            >
               Back
             </Button>
             <Button
