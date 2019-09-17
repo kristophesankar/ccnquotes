@@ -1,38 +1,45 @@
 import React, { Component } from "react"
+import { connect } from "react-redux"
 import { getQuote } from "../utils/api"
 import { withRouter } from "react-router-dom"
 import Button from "react-bootstrap/Button"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import Form from "react-bootstrap/Form"
+import { handleUpdateQuote } from "../actions/"
 
 class ViewQuote extends Component {
   state = {
-    quote: {
-      body: "",
-      author: "",
-      source: "",
-      id: ""
-    },
+    body: "",
+    author: "",
+    source: "",
+    id: "",
     isDisabled: true
   }
 
   handleOnChangeBody = event => {
     this.setState({
-      quote: { body: event.target.value }
+      body: event.target.value
     })
   }
 
   handleOnChangeAuthor = event => {
     this.setState({
-      quote: { author: event.target.value }
+      author: event.target.value
     })
   }
 
   handleOnChangeSource = event => {
     this.setState({
-      quote: { source: event.target.value }
+      source: event.target.value
     })
+  }
+
+  handleOnSubmit = event => {
+    event.preventDefault()
+    const { dispatch } = this.props
+    const { id, body, author, source } = this.state
+    dispatch(handleUpdateQuote({ id, body, author, source }))
   }
 
   handleEnableEditing = event => {
@@ -46,13 +53,16 @@ class ViewQuote extends Component {
     const { match } = this.props
     getQuote(match.params.id).then(data => {
       this.setState({
-        quote: data
+        id: data.id,
+        body: data.body,
+        author: data.author,
+        source: data.source
       })
     })
   }
 
   render() {
-    const { quote, isDisabled } = this.state
+    const { body, author, source, isDisabled } = this.state
     return (
       <Form>
         <Form.Group controlId="formQuote">
@@ -61,7 +71,7 @@ class ViewQuote extends Component {
             rows="4"
             placeholder="Enter quote text..."
             onChange={this.handleOnChangeBody}
-            value={quote.body}
+            value={body}
             disabled={isDisabled}
           />
         </Form.Group>
@@ -71,7 +81,7 @@ class ViewQuote extends Component {
             type="text"
             placeholder="Enter author..."
             onChange={this.handleOnChangeAuthor}
-            value={quote.author}
+            value={author}
             disabled={isDisabled}
           />
         </Form.Group>
@@ -81,7 +91,7 @@ class ViewQuote extends Component {
             type="text"
             placeholder="Enter source..."
             onChange={this.handleOnChangeSource}
-            value={quote.source}
+            value={source}
             disabled={isDisabled}
           />
         </Form.Group>
@@ -127,4 +137,4 @@ class ViewQuote extends Component {
   }
 }
 
-export default withRouter(ViewQuote)
+export default connect()(withRouter(ViewQuote))
