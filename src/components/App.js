@@ -4,6 +4,7 @@ import { handleInitialData } from "../actions/index"
 import NavigationBar from "./NavigationBar"
 import AllQuotesContainer from "./AllQuotesContainer"
 import CreateQuoteContainer from "./CreateQuoteContainer"
+import ViewQuoteContainer from "./ViewQuoteContainer"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
           <Fragment>
             <Route path="/" exact component={AllQuotesContainer} />
             <Route path="/create" exact component={CreateQuoteContainer} />
+            <Route path="/quote/:id" exact component={ViewQuoteContainer} />
           </Fragment>
         </Switch>
       </Router>

@@ -84,7 +84,6 @@ class CreateQuoteForm extends Component {
 
   render() {
     const { body, author, source } = this.state
-    const { history } = this.props
     return (
       <Form>
         <Form.Group controlId="formQuote">
