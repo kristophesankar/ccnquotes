@@ -123,17 +123,18 @@ class ViewQuote extends Component {
             <Button
               size="sm"
               variant="primary"
-              className="m-1 UpdateButton"
+              className="m-1 updateButton"
               onClick={this.handleOnSubmit}
               type="submit"
+              disabled={isDisabled}
             >
               Update / Save
             </Button>
             <Button
               size="sm"
               variant="primary"
-              className="m-1 UpdateButton"
-              onClick={this.handleOnSubmit}
+              className="m-1 deleteButton"
+              onClick={this.handleOnDelete}
               type="submit"
             >
               Delete
