@@ -35,12 +35,17 @@ class QuoteList extends Component {
             >
               <Card.Body className="p-2">
                 <Row>
-                  <Col sm={7}>
+                  <Col sm={8}>
                     <TruncatedText>{quote.body}</TruncatedText>
                   </Col>
-                  <Col className="pull-right" sm={5}>
+                  <Col
+                    style={{ borderLeft: "#dfdfdf 1px solid" }}
+                    className="text-center"
+                    sm={4}
+                  >
                     <Button
-                      className="m-1"
+                      size="sm"
+                      className="m-1 "
                       key={`edit-btn-${quote.id}`}
                       onClick={() => {
                         history.push(`/quote/${quote.id}`)
