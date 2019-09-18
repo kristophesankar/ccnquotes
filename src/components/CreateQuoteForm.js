@@ -40,7 +40,7 @@ class CreateQuoteForm extends Component {
   handleOnBack = event => {
     event.preventDefault()
     const { history } = this.props
-    history.push(`/`)
+    history.goBack()
   }
 
   handleOnSubmit = event => {
@@ -117,6 +117,7 @@ class CreateQuoteForm extends Component {
         <Row className="justify-content-center">
           <Col className="text-center" sm={6}>
             <Button
+              size="sm"
               variant="primary"
               className="m-1 backButton"
               onClick={this.handleOnBack}
@@ -125,6 +126,7 @@ class CreateQuoteForm extends Component {
               Back
             </Button>
             <Button
+              size="sm"
               variant="primary"
               className="m-1 submitButton"
               onClick={this.handleOnSubmit}
