@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import QuoteList from "./QuoteList"
 import QuoteCard from "./QuoteCard"
+import Card from "react-bootstrap/Card"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
@@ -25,7 +26,9 @@ const AllQuotesContainer = props => {
         </Col>
         <Col id="quoteCardColumn" sm={6}>
           {isEmpty(props.selectedQuote) ? (
-            <QuoteCard quoteId={1} />
+            <Card className="m-2 quoteListItem">
+              <Card.Body>Select a card to view its details...</Card.Body>
+            </Card>
           ) : (
             <QuoteCard quoteId={props.selectedQuote.id} />
           )}
