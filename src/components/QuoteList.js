@@ -5,22 +5,11 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import Button from "react-bootstrap/Button"
 import { TruncatedText } from "../styles/styles"
-import { handleSetSelectedQuote } from "../actions/index"
 import { withRouter } from "react-router-dom"
 
 class QuoteList extends Component {
-  state = {
-    quoteId: ""
-  }
-
-  handleSelection = quoteId => {
-    const { dispatch } = this.props
-    this.setState({ quoteId })
-    dispatch(handleSetSelectedQuote(quoteId))
-  }
-
   render() {
-    const { quotes, history } = this.props
+    const { quotes, history, onHandleSelection } = this.props
     return (
       <div>
         {Object.values(quotes).length > 0 &&
@@ -30,7 +19,7 @@ class QuoteList extends Component {
               className="m-2 quoteListItem"
               key={`card-${quote.id}`}
               onClick={() => {
-                this.handleSelection(quote.id)
+                onHandleSelection(quote.id)
               }}
             >
               <Card.Body className="p-2">

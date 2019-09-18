@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react"
 import { connect } from "react-redux"
 import QuoteList from "./QuoteList"
 import QuoteCard from "./QuoteCard"
@@ -8,34 +8,44 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import { Title } from "../styles/styles"
 
-const isEmpty = obj => {
-  return Object.getOwnPropertyNames(obj).length === 0
-}
+class AllQuotesContainer extends Component {
+  state = {
+    selection: ""
+  }
 
-const AllQuotesContainer = props => {
-  return (
-    <Container id="allQuotesContainer">
-      <Row>
-        <Col sm={12}>
-          <Title>All Quotes</Title>
-        </Col>
-      </Row>
-      <Row>
-        <Col id="quoteListColumn" sm={6}>
-          <QuoteList className="qL" />
-        </Col>
-        <Col id="quoteCardColumn" sm={6}>
-          {isEmpty(props.selectedQuote) ? (
-            <Card className="m-2 quoteListItem">
-              <Card.Body>Select a card to view its details...</Card.Body>
-            </Card>
-          ) : (
-            <QuoteCard quoteId={props.selectedQuote.id} />
-          )}
-        </Col>
-      </Row>
-    </Container>
-  )
+  handleSelection = quoteId => {
+    this.setState({ selection: quoteId })
+  }
+
+  render() {
+    return (
+      <Container id="allQuotesContainer">
+        <Row>
+          <Col sm={12}>
+            <Title>All Quotes</Title>
+          </Col>
+        </Row>
+        <Row>
+          <Col id="quoteListColumn" sm={6}>
+            <QuoteList
+              onHandleSelection={this.handleSelection}
+              selection={this.state.selection}
+              className="qL"
+            />
+          </Col>
+          <Col id="quoteCardColumn" sm={6}>
+            {this.state.selection === "" ? (
+              <Card className="m-2 quoteListItem">
+                <Card.Body>Select a card to view its details...</Card.Body>
+              </Card>
+            ) : (
+              <QuoteCard quoteId={this.state.selection} />
+            )}
+          </Col>
+        </Row>
+      </Container>
+    )
+  }
 }
 
 function mapStateToProps({ selectedQuote }) {
