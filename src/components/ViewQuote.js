@@ -62,6 +62,7 @@ class ViewQuote extends Component {
   }
 
   render() {
+    const { history } = this.props
     const { body, author, source, isDisabled } = this.state
     return (
       <Form>
@@ -99,14 +100,19 @@ class ViewQuote extends Component {
         <Row className="justify-content-center">
           <Col className="text-center" sm={12}>
             <Button
+              size="sm"
               variant="primary"
               className="m-1 backButton"
-              onClick={this.handleOnBack}
+              onClick={event => {
+                event.preventDefault()
+                history.goBack()
+              }}
               type=""
             >
               Back
             </Button>
             <Button
+              size="sm"
               variant="primary"
               className="m-1 backButton"
               onClick={this.handleEnableEditing}
@@ -115,6 +121,7 @@ class ViewQuote extends Component {
               Toggle Editing
             </Button>
             <Button
+              size="sm"
               variant="primary"
               className="m-1 UpdateButton"
               onClick={this.handleOnSubmit}
@@ -123,6 +130,7 @@ class ViewQuote extends Component {
               Update / Save
             </Button>
             <Button
+              size="sm"
               variant="primary"
               className="m-1 UpdateButton"
               onClick={this.handleOnSubmit}
