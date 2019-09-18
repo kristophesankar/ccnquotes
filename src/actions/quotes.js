@@ -2,6 +2,7 @@ export const GET_QUOTES = "GET_QUOTES"
 export const GET_QUOTES_ERROR = "GET_QUOTES_ERROR"
 export const CREATE_QUOTE = "CREATE_QUOTE"
 export const UPDATE_QUOTE = "UPDATE_QUOTE"
+export const DELETE_QUOTE = "DELETE_QUOTE"
 
 export function getQuotes(quotes) {
   return {
@@ -20,6 +21,13 @@ export function createQuote(quote) {
 export function updateQuote(quote) {
   return {
     type: UPDATE_QUOTE,
+    quote
+  }
+}
+
+export function deleteQuote(quote) {
+  return {
+    type: DELETE_QUOTE,
     quote
   }
 }

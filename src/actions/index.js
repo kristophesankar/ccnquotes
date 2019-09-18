@@ -1,13 +1,15 @@
 import {
   getInitialData,
   createNewQuote,
-  updateExistingQuote
+  updateExistingQuote,
+  deleteExistingQuote
 } from "../utils/api"
 import {
   getQuotes,
   getQuotesError,
   createQuote,
-  updateQuote
+  updateQuote,
+  deleteQuote
 } from "../actions/quotes"
 import { setSelectedQuote } from "../actions/selectedQuote"
 
@@ -29,9 +31,22 @@ export function handleSetSelectedQuote(quoteId) {
 
 export function handleUpdateQuote(quote) {
   return dispatch => {
-    updateExistingQuote(quote).then(response => {
-      dispatch(updateQuote(response))
-    })
+    updateExistingQuote(quote)
+      .then(response => {
+        dispatch(updateQuote(response))
+      })
+      .catch(error => dispatch(getQuotesError(error)))
+  }
+}
+
+export function handleDeleteQuote(quote) {
+  return dispatch => {
+    deleteExistingQuote(quote)
+      .then(response => {
+        console.log(response)
+        dispatch(deleteQuote(quote))
+      })
+      .catch(error => dispatch(getQuotesError(error)))
   }
 }
 

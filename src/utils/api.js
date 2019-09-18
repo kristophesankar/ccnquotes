@@ -25,7 +25,7 @@ export function createNewQuote(data) {
   }).then(response => response.json())
 }
 
-// Update a new quote
+// Update a quote
 export function updateExistingQuote(data) {
   return fetch(`http://localhost:3001/quotes/${data.id}`, {
     method: "PUT",
@@ -33,5 +33,12 @@ export function updateExistingQuote(data) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(data)
+  }).then(response => response.json())
+}
+
+// Delete a quote
+export function deleteExistingQuote(data) {
+  return fetch(`http://localhost:3001/quotes/${data.id}`, {
+    method: "DELETE"
   }).then(response => response.json())
 }

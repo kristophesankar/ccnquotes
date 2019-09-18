@@ -2,7 +2,8 @@ import {
   GET_QUOTES,
   GET_QUOTES_ERROR,
   CREATE_QUOTE,
-  UPDATE_QUOTE
+  UPDATE_QUOTE,
+  DELETE_QUOTE
 } from "../actions/quotes"
 
 export default function quotes(state = {}, action) {
@@ -25,6 +26,15 @@ export default function quotes(state = {}, action) {
       return {
         ...state,
         [key[0][0]]: action.quote
+      }
+    case DELETE_QUOTE:
+      const entries = Object.entries(state).filter(entry => {
+        return entry[1].id !== action.quote.id
+      })
+      const newState = Object.fromEntries(entries)
+
+      return {
+        ...newState
       }
     case GET_QUOTES_ERROR:
       return {
