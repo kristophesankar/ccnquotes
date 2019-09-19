@@ -41,5 +41,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "devDependencies": {
+    "standard": "^14.3.1"
   }
 }
