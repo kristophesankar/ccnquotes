@@ -4,22 +4,26 @@ import {
   CREATE_QUOTE,
   UPDATE_QUOTE,
   DELETE_QUOTE
-} from "../actions/quotes"
+} from '../actions/quotes'
 
-export default function quotes(state = {}, action) {
+export default function quotes (state = {}, action) {
   switch (action.type) {
-    case GET_QUOTES:
+    case GET_QUOTES: {
       return {
         ...state,
         ...action.quotes
       }
-    case CREATE_QUOTE:
+    }
+
+    case CREATE_QUOTE: {
       const { quote } = action
       return {
         ...state,
         [Object.values(state).length]: quote
       }
-    case UPDATE_QUOTE:
+    }
+
+    case UPDATE_QUOTE: {
       const key = Object.entries(state).filter(entry => {
         return entry[1].id === action.quote.id
       })
@@ -27,7 +31,9 @@ export default function quotes(state = {}, action) {
         ...state,
         [key[0][0]]: action.quote
       }
-    case DELETE_QUOTE:
+    }
+
+    case DELETE_QUOTE: {
       const entries = Object.entries(state).filter(entry => {
         return entry[1].id !== action.quote.id
       })
@@ -36,12 +42,17 @@ export default function quotes(state = {}, action) {
       return {
         ...newState
       }
-    case GET_QUOTES_ERROR:
+    }
+
+    case GET_QUOTES_ERROR: {
       return {
         ...state,
         quotesError: action.quotesError
       }
-    default:
+    }
+
+    default: {
       return state
+    }
   }
 }
