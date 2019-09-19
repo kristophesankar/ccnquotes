@@ -11,7 +11,6 @@ import {
   updateQuote,
   deleteQuote
 } from '../actions/quotes'
-import { setSelectedQuote } from '../actions/selectedQuote'
 
 export function handleInitialData () {
   return dispatch => {
@@ -20,12 +19,6 @@ export function handleInitialData () {
         dispatch(getQuotes(quotes))
       })
       .catch(error => dispatch(getQuotesError(error)))
-  }
-}
-
-export function handleSetSelectedQuote (quoteId) {
-  return dispatch => {
-    dispatch(setSelectedQuote(quoteId))
   }
 }
 
