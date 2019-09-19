@@ -21,6 +21,7 @@ const QuoteCard = props => {
 }
 
 function mapStateToProps ({ quotes }, props) {
+  /* get quote from quote id */
   const quote = Object.values(quotes).filter(entry => {
     return parseInt(entry.id) === parseInt(props.quoteId)
   })

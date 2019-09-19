@@ -5,6 +5,10 @@ import Col from 'react-bootstrap/Col'
 import { Title } from '../styles/styles'
 import CreateQuoteForm from './CreateQuoteForm'
 
+/*
+ * This is a container for the create quote form.
+ * Contains basic layout of the page
+ */
 const CreateQuoteContainer = props => {
   return (
     <Container id='createQuoteContainer'>

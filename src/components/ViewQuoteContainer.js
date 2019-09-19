@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col'
 import { Title } from '../styles/styles'
 import ViewQuote from './ViewQuote'
 
+/* Container for view quote page */
 const ViewQuoteContainer = props => {
   return (
     <Container id='viewQuoteContainer'>

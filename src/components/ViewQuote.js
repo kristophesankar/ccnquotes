@@ -18,6 +18,8 @@ class ViewQuote extends Component {
     isError: false
   }
 
+  /* On change State Updaters */
+
   handleOnChangeBody = event => {
     this.setState({
       body: event.target.value
@@ -35,6 +37,8 @@ class ViewQuote extends Component {
       source: event.target.value
     })
   }
+
+  /* Button events */
 
   handleOnSubmit = event => {
     event.preventDefault()
@@ -58,6 +62,7 @@ class ViewQuote extends Component {
     }))
   }
 
+  /* query db for individual quote and set local state */
   componentDidMount () {
     const { match } = this.props
     getQuote(match.params.id).then(data => {
@@ -78,6 +83,7 @@ class ViewQuote extends Component {
     const { body, author, source, isDisabled, isError } = this.state
     return (
       <div>
+        {/* If there is no error show the form else show a placeholder */}
         {isError === false ? (
           <Form>
             <Form.Group controlId='formQuote'>

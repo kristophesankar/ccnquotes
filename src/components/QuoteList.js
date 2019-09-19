@@ -11,6 +11,9 @@ const QuoteList = props => {
   const { quotes, history, onHandleSelection } = props
   return (
     <div>
+      {/* Show cards if there are items in the db and there were no
+        * errors in querying. Else show a placeholder.
+        */}
       {Object.values(quotes).length > 0 &&
         typeof quotes.quotesError === 'undefined' ? (
           Object.values(quotes).map(quote => (
