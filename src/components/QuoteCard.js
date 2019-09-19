@@ -1,25 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import Card from 'react-bootstrap/Card'
 
-class QuoteCard extends Component {
-  render () {
-    return (
-      <Card id='quoteCard' className='m-2'>
-        <Card.Body className='p-2'>
-          {this.props.quote.map(entry => (
-            <div key={`quote-${entry.id}`}>
-              <div id='entryBody'>{entry.body}</div>
-              <br />
-              <div id='entryAuthor'>{entry.author}</div>
-              <br />
-              <div id='entrySource'>{entry.source}</div>
-            </div>
-          ))}
-        </Card.Body>
-      </Card>
-    )
-  }
+const QuoteCard = props => {
+  return (
+    <Card id='quoteCard' className='m-2'>
+      <Card.Body className='p-2'>
+        {props.quote.map(entry => (
+          <div key={`quote-${entry.id}`}>
+            <div id='entryBody'>{entry.body}</div>
+            <br />
+            <div id='entryAuthor'>{entry.author}</div>
+            <br />
+            <div id='entrySource'>{entry.source}</div>
+          </div>
+        ))}
+      </Card.Body>
+    </Card>
+  )
 }
 
 function mapStateToProps ({ quotes }, props) {
