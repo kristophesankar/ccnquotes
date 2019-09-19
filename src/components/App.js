@@ -1,27 +1,27 @@
-import React, { Component, Fragment } from "react"
-import { connect } from "react-redux"
-import { handleInitialData } from "../actions/index"
-import NavigationBar from "./NavigationBar"
-import AllQuotesContainer from "./AllQuotesContainer"
-import CreateQuoteContainer from "./CreateQuoteContainer"
-import ViewQuoteContainer from "./ViewQuoteContainer"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { handleInitialData } from '../actions/index'
+import NavigationBar from './NavigationBar'
+import AllQuotesContainer from './AllQuotesContainer'
+import CreateQuoteContainer from './CreateQuoteContainer'
+import ViewQuoteContainer from './ViewQuoteContainer'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 class App extends Component {
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(handleInitialData())
   }
 
-  render() {
+  render () {
     return (
       <Router>
         <NavigationBar />
         <Switch>
-          <Fragment>
-            <Route path="/" exact component={AllQuotesContainer} />
-            <Route path="/create" exact component={CreateQuoteContainer} />
-            <Route path="/quote/:id" exact component={ViewQuoteContainer} />
-          </Fragment>
+          <>
+            <Route path='/' exact component={AllQuotesContainer} />
+            <Route path='/create' exact component={CreateQuoteContainer} />
+            <Route path='/quote/:id' exact component={ViewQuoteContainer} />
+          </>
         </Switch>
       </Router>
     )

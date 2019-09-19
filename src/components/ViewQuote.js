@@ -1,19 +1,19 @@
-import React, { Component } from "react"
-import { connect } from "react-redux"
-import { getQuote } from "../utils/api"
-import { withRouter } from "react-router-dom"
-import Button from "react-bootstrap/Button"
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
-import Form from "react-bootstrap/Form"
-import { handleUpdateQuote, handleDeleteQuote } from "../actions/"
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { getQuote } from '../utils/api'
+import { withRouter } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Form from 'react-bootstrap/Form'
+import { handleUpdateQuote, handleDeleteQuote } from '../actions/'
 
 class ViewQuote extends Component {
   state = {
-    body: "",
-    author: "",
-    source: "",
-    id: "",
+    body: '',
+    author: '',
+    source: '',
+    id: '',
     isDisabled: true,
     isError: false
   }
@@ -48,7 +48,7 @@ class ViewQuote extends Component {
     const { dispatch, history } = this.props
     const { id, body, author, source } = this.state
     dispatch(handleDeleteQuote({ id, body, author, source }))
-    history.push("/")
+    history.push('/')
   }
 
   handleEnableEditing = event => {
@@ -58,98 +58,98 @@ class ViewQuote extends Component {
     }))
   }
 
-  componentDidMount() {
+  componentDidMount () {
     const { match } = this.props
     getQuote(match.params.id).then(data => {
       Object.entries(data).length > 0
         ? this.setState({
-            id: data.id,
-            body: data.body,
-            author: data.author,
-            source: data.source,
-            isError: false
-          })
+          id: data.id,
+          body: data.body,
+          author: data.author,
+          source: data.source,
+          isError: false
+        })
         : this.setState({ isError: true })
     })
   }
 
-  render() {
+  render () {
     const { history } = this.props
     const { body, author, source, isDisabled, isError } = this.state
     return (
       <div>
         {isError === false ? (
           <Form>
-            <Form.Group controlId="formQuote">
+            <Form.Group controlId='formQuote'>
               <Form.Control
-                as="textarea"
-                rows="4"
-                placeholder="Enter quote text..."
+                as='textarea'
+                rows='4'
+                placeholder='Enter quote text...'
                 onChange={this.handleOnChangeBody}
                 value={body}
                 disabled={isDisabled}
               />
             </Form.Group>
 
-            <Form.Group controlId="formQuoteAuthor">
+            <Form.Group controlId='formQuoteAuthor'>
               <Form.Control
-                type="text"
-                placeholder="Enter author..."
+                type='text'
+                placeholder='Enter author...'
                 onChange={this.handleOnChangeAuthor}
                 value={author}
                 disabled={isDisabled}
               />
             </Form.Group>
 
-            <Form.Group controlId="formQuoteSource">
+            <Form.Group controlId='formQuoteSource'>
               <Form.Control
-                type="text"
-                placeholder="Enter source..."
+                type='text'
+                placeholder='Enter source...'
                 onChange={this.handleOnChangeSource}
                 value={source}
                 disabled={isDisabled}
               />
             </Form.Group>
 
-            <Row className="justify-content-center">
-              <Col className="text-center" sm={12}>
+            <Row className='justify-content-center'>
+              <Col className='text-center' sm={12}>
                 <Button
-                  size="sm"
-                  variant="primary"
-                  className="m-1 backButton"
+                  size='sm'
+                  variant='primary'
+                  className='m-1 backButton'
                   onClick={event => {
                     event.preventDefault()
                     history.goBack()
                   }}
-                  type=""
+                  type=''
                 >
                   Back
                 </Button>
                 <Button
-                  size="sm"
-                  variant="primary"
-                  className="m-1 backButton"
+                  size='sm'
+                  variant='primary'
+                  className='m-1 backButton'
                   onClick={this.handleEnableEditing}
-                  type=""
+                  type=''
                 >
                   Toggle Editing
                 </Button>
                 <Button
-                  size="sm"
-                  variant="primary"
-                  className="m-1 updateButton"
+                  size='sm'
+                  variant='primary'
+                  className='m-1 updateButton'
                   onClick={this.handleOnSubmit}
-                  type="submit"
+                  type='submit'
                   disabled={isDisabled}
                 >
                   Update / Save
                 </Button>
                 <Button
-                  size="sm"
-                  variant="primary"
-                  className="m-1 deleteButton"
+                  size='sm'
+                  variant='primary'
+                  className='m-1 deleteButton'
                   onClick={this.handleOnDelete}
-                  type="submit"
+                  type='submit'
                 >
                   Delete
                 </Button>
@@ -158,7 +158,7 @@ class ViewQuote extends Component {
           </Form>
         ) : (
           <Row>
-            <Col sm="12" className="text-center">
+            <Col sm='12' className='text-center'>
               The requested resource does not exist.
             </Col>
           </Row>

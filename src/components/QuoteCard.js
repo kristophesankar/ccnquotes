@@ -1,25 +1,19 @@
-import React, { Component } from "react"
-import { connect } from "react-redux"
-import Card from "react-bootstrap/Card"
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import Card from 'react-bootstrap/Card'
 
 class QuoteCard extends Component {
-  state = {
-    quote: {}
-  }
-
-  componentDidMount() {}
-
-  render() {
+  render () {
     return (
-      <Card id="quoteCard" className="m-2">
-        <Card.Body className="p-2">
+      <Card id='quoteCard' className='m-2'>
+        <Card.Body className='p-2'>
           {this.props.quote.map(entry => (
             <div key={`quote-${entry.id}`}>
-              <div id="entryBody">{entry.body}</div>
+              <div id='entryBody'>{entry.body}</div>
               <br />
-              <div id="entryAuthor">{entry.author}</div>
+              <div id='entryAuthor'>{entry.author}</div>
               <br />
-              <div id="entrySource">{entry.source}</div>
+              <div id='entrySource'>{entry.source}</div>
             </div>
           ))}
         </Card.Body>
@@ -28,7 +22,7 @@ class QuoteCard extends Component {
   }
 }
 
-function mapStateToProps({ quotes }, props) {
+function mapStateToProps ({ quotes }, props) {
   const quote = Object.values(quotes).filter(entry => {
     return parseInt(entry.id) === parseInt(props.quoteId)
   })
