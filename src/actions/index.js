@@ -3,17 +3,17 @@ import {
   createNewQuote,
   updateExistingQuote,
   deleteExistingQuote
-} from "../utils/api"
+} from '../utils/api'
 import {
   getQuotes,
   getQuotesError,
   createQuote,
   updateQuote,
   deleteQuote
-} from "../actions/quotes"
-import { setSelectedQuote } from "../actions/selectedQuote"
+} from '../actions/quotes'
+import { setSelectedQuote } from '../actions/selectedQuote'
 
-export function handleInitialData() {
+export function handleInitialData () {
   return dispatch => {
     return getInitialData()
       .then(quotes => {
@@ -23,13 +23,13 @@ export function handleInitialData() {
   }
 }
 
-export function handleSetSelectedQuote(quoteId) {
+export function handleSetSelectedQuote (quoteId) {
   return dispatch => {
     dispatch(setSelectedQuote(quoteId))
   }
 }
 
-export function handleUpdateQuote(quote) {
+export function handleUpdateQuote (quote) {
   return dispatch => {
     updateExistingQuote(quote)
       .then(response => {
@@ -39,7 +39,7 @@ export function handleUpdateQuote(quote) {
   }
 }
 
-export function handleDeleteQuote(quote) {
+export function handleDeleteQuote (quote) {
   return dispatch => {
     deleteExistingQuote(quote)
       .then(response => {
@@ -50,7 +50,7 @@ export function handleDeleteQuote(quote) {
   }
 }
 
-export function handleSubmitQuote(data, history) {
+export function handleSubmitQuote (data, history) {
   return dispatch => {
     return getInitialData()
       .then(quotes => {
