@@ -19,6 +19,8 @@ class CreateQuoteForm extends Component {
     sourceError: 'You did not enter any source in.'
   }
 
+  /* Update state on input change */
+
   handleOnChangeBody = event => {
     this.setState({
       body: event.target.value
@@ -37,6 +39,7 @@ class CreateQuoteForm extends Component {
     })
   }
 
+  /* handle event for back button */
   handleOnBack = event => {
     event.preventDefault()
     const { history } = this.props
@@ -56,6 +59,10 @@ class CreateQuoteForm extends Component {
     } = this.state
     let error = false
 
+    /*
+    * Show errors
+    * TODO: Refactor
+    */
     if (body === '') {
       toast.notify(bodyError, {
         position: 'top-right'
@@ -77,6 +84,7 @@ class CreateQuoteForm extends Component {
       error = true
     }
 
+    /* Condition for dispatching quote submission */
     if (!error) {
       this.props.dispatch(handleSubmitQuote({ body, author, source }, history))
     }
@@ -141,10 +149,4 @@ class CreateQuoteForm extends Component {
   }
 }
 
-function mapStateToProps ({ quotes }) {
-  return {
-    quotes
-  }
-}
-
-export default connect(mapStateToProps)(withRouter(CreateQuoteForm))
+export default connect()(withRouter(CreateQuoteForm))

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import QuoteList from './QuoteList'
 import QuoteCard from './QuoteCard'
 import Card from 'react-bootstrap/Card'
@@ -13,6 +12,7 @@ class AllQuotesContainer extends Component {
     selection: ''
   }
 
+  /* On QuoteList item click set the selection property in state */
   handleSelection = quoteId => {
     this.setState({ selection: quoteId })
   }
@@ -27,13 +27,16 @@ class AllQuotesContainer extends Component {
         </Row>
         <Row>
           <Col id='quoteListColumn' sm={6}>
+            {/*
+              Pass in the handleSelection function to the QuoteList component
+            */}
             <QuoteList
               onHandleSelection={this.handleSelection}
-              selection={this.state.selection}
               className='qL'
             />
           </Col>
           <Col id='quoteCardColumn' sm={6}>
+            {/* Condition for showing selected card details */}
             {this.state.selection === '' ? (
               <Card className='m-2 quoteListItem'>
                 <Card.Body>Select a card to view its details...</Card.Body>
@@ -48,10 +51,4 @@ class AllQuotesContainer extends Component {
   }
 }
 
-function mapStateToProps ({ selectedQuote }) {
-  return {
-    selectedQuote
-  }
-}
-
-export default connect(mapStateToProps)(AllQuotesContainer)
+export default AllQuotesContainer
