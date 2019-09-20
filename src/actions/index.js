@@ -1,5 +1,6 @@
 import {
   getInitialData,
+  getSearchData,
   createNewQuote,
   updateExistingQuote,
   deleteExistingQuote
@@ -7,6 +8,7 @@ import {
 import {
   getQuotes,
   getQuotesError,
+  getSearchQuotes,
   createQuote,
   updateQuote,
   deleteQuote
@@ -17,6 +19,16 @@ export function handleInitialData () {
     return getInitialData()
       .then(quotes => {
         dispatch(getQuotes(quotes))
+      })
+      .catch(error => dispatch(getQuotesError(error)))
+  }
+}
+
+export function handleSearchData (query) {
+  return dispatch => {
+    return getSearchData(query)
+      .then(response => {
+        dispatch(getSearchQuotes(response))
       })
       .catch(error => dispatch(getQuotesError(error)))
   }

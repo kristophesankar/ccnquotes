@@ -3,10 +3,18 @@ export const GET_QUOTES_ERROR = 'GET_QUOTES_ERROR'
 export const CREATE_QUOTE = 'CREATE_QUOTE'
 export const UPDATE_QUOTE = 'UPDATE_QUOTE'
 export const DELETE_QUOTE = 'DELETE_QUOTE'
+export const SEARCH_QUOTES = 'SEARCH_QUOTES'
 
 export function getQuotes (quotes) {
   return {
     type: GET_QUOTES,
+    quotes
+  }
+}
+
+export function getSearchQuotes (quotes) {
+  return {
+    type: SEARCH_QUOTES,
     quotes
   }
 }

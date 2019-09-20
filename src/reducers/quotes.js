@@ -3,7 +3,8 @@ import {
   GET_QUOTES_ERROR,
   CREATE_QUOTE,
   UPDATE_QUOTE,
-  DELETE_QUOTE
+  DELETE_QUOTE,
+  SEARCH_QUOTES
 } from '../actions/quotes'
 
 export default function quotes (state = {}, action) {
@@ -11,6 +12,12 @@ export default function quotes (state = {}, action) {
     case GET_QUOTES: {
       return {
         ...state,
+        ...action.quotes
+      }
+    }
+
+    case SEARCH_QUOTES: {
+      return {
         ...action.quotes
       }
     }
