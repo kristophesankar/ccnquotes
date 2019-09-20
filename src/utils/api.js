@@ -42,3 +42,9 @@ export function deleteExistingQuote (data) {
     method: 'DELETE'
   }).then(response => response.json())
 }
+
+export function getSearchData (query) {
+  return fetch(`http://localhost:3001/quotes?q=${query}`)
+    .then(response => response.json())
+    .then(data => data)
+}
