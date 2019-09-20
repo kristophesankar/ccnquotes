@@ -134,7 +134,7 @@ class ViewQuote extends Component {
                 <Button
                   size='sm'
                   variant='primary'
-                  className='m-1 backButton'
+                  className='m-1 toggleButton'
                   onClick={this.handleEnableEditing}
                   type=''
                 >
@@ -164,7 +164,7 @@ class ViewQuote extends Component {
           </Form>
         ) : (
           <Row>
-            <Col sm='12' className='text-center'>
+            <Col sm='12' className='text-center noResource'>
               The requested resource does not exist.
             </Col>
           </Row>

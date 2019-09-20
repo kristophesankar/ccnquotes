@@ -36,7 +36,7 @@ const QuoteList = props => {
                   >
                     <Button
                       size='sm'
-                      className='m-1 '
+                      className='m-1 editButton'
                       key={`edit-btn-${quote.id}`}
                       onClick={() => {
                         history.push(`/quote/${quote.id}`)
