@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Title = styled.h1`
   text-align: center;
   margin: 20px;
+  font-weight: bold;
 `
 
 export const TruncatedText = styled.p`
@@ -10,4 +11,8 @@ export const TruncatedText = styled.p`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+`
+
+export const CustomCard = styled.div`
+  border: solid 1px #000;
 `

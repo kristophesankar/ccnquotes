@@ -17,8 +17,12 @@ class NavigationBar extends Component {
 
   render () {
     return (
-      <Navbar bg='light' expand='lg'>
-        <Navbar.Brand href='#home'>CCN Quotes</Navbar.Brand>
+      <Navbar bg='nav-container' expand='lg'>
+        <Navbar.Brand
+          bsPrefix='bg-nav-container__brand'
+          href='#home'
+        >CCN Quotes
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ml-auto'>

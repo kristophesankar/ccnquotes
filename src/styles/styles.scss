@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,800&display=swap');
+
+/* Navbar Colors */
+$navTextColor: #AAD4F5;
+$navBackgroundColor: #2368A2;
+$navAccentColor: #74D99F;
+$primaryTextColor: #4b4d4e;
+
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: $primaryTextColor;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.375rem; }
+h5 { font-size: 1.25rem; }
+
+.bg-nav-container{
+  background: $navBackgroundColor;
+}
+
+.bg-nav-container__brand{
+  color: $navTextColor;
+  font-weight: 600;
+}
+
+.bg-nav-container__brand:hover{
+  text-decoration: none;
+  color: $navTextColor;
+}
+
+/*
+4px     0.25rem
+8px   0.5rem
+12px    0.75rem
+14px    0.875rem
+16px    1rem
+18px    1.125rem
+20px    1.25rem
+22px    1.375rem
+24px    1.5rem
+32px    2rem
+36px    2.25rem
+48px    3rem
+64px    4rem
+72px    4.5rem*/
