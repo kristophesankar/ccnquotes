@@ -6,13 +6,14 @@ import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 import { NavLink } from 'react-router-dom'
 import { handleSearchData } from '../actions/'
+import { debounce } from 'lodash'
 
 class NavigationBar extends Component {
-  handleOnChangeSearch = (event) => {
-    event.preventDefault()
+  // wait untile user has typed before querying db
+  handleOnChangeSearch = debounce((e) => {
     const { dispatch } = this.props
-    dispatch(handleSearchData(event.target.value))
-  }
+    dispatch(handleSearchData(e))
+  }, 300);
 
   render () {
     return (
@@ -29,7 +30,12 @@ class NavigationBar extends Component {
             </Nav.Link>
           </Nav>
           <Form inline>
-            <FormControl type='text' onChange={this.handleOnChangeSearch} placeholder='Search' className='mr-sm-2' />
+            <FormControl
+              type='text'
+              onChange={(event) => this.handleOnChangeSearch(event.target.value)}
+              placeholder='Search'
+              className='mr-sm-2'
+            />
           </Form>
         </Navbar.Collapse>
       </Navbar>
