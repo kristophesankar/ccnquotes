@@ -9,7 +9,7 @@ import { handleSearchData } from '../actions/'
 import { debounce } from 'lodash'
 
 class NavigationBar extends Component {
-  // wait untile user has typed before querying db
+  // wait until user has typed before querying db
   handleOnChangeSearch = debounce((e) => {
     const { dispatch } = this.props
     dispatch(handleSearchData(e))
