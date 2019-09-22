@@ -2,6 +2,7 @@
 import styled from 'styled-components'
 import Navbar, { Toggle, Brand } from 'react-bootstrap/Navbar'
 import Card, { Body } from 'react-bootstrap/Card'
+import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-bootstrap/Nav'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -43,6 +44,18 @@ export const TruncatedText = styled.p`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+`
+
+export const FooterRow = styled(Row)`
+  background: ${navTextColor};
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 2.5rem;
+`
+export const FooterText = styled.div`
+  padding: 10px;
+  font-size: 0.875rem;
 `
 
 export const NavIcon = styled(FontAwesomeIcon)`
