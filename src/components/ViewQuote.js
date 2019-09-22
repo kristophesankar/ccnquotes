@@ -49,6 +49,9 @@ class ViewQuote extends Component {
     const { dispatch } = this.props
     const { id, body, author, source } = this.state
     dispatch(handleUpdateQuote({ id, body, author, source }))
+    toast.notify('Quote was updated!', {
+      position: 'top-right'
+    })
   }
 
   handleOnDelete = event => {
@@ -57,6 +60,9 @@ class ViewQuote extends Component {
     const { id, body, author, source } = this.state
     dispatch(handleDeleteQuote({ id, body, author, source }))
     history.push('/')
+    toast.notify('Quote was deleted!', {
+      position: 'top-right'
+    })
   }
 
   handleEnableEditing = event => {
