@@ -1,13 +1,14 @@
 /* Component Imports */
 import styled from 'styled-components'
 import Navbar, { Toggle, Brand } from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
+import Card, { Body } from 'react-bootstrap/Card'
+import { Link } from 'react-bootstrap/Nav'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 /* Colors */
-const navTextColor = '#d1e8fa !important'
-const navBackgroundColor = '#2369a3 !important'
-const navAccentColor = '#6ED7D3 !important'
+export const navTextColor = '#d1e8fa !important'
+export const navBackgroundColor = '#2369a3 !important'
+export const navAccentColor = '#6ED7D3 !important'
 
 /* Styled Components */
 
@@ -25,14 +26,15 @@ export const TruncatedText = styled.p`
   text-overflow: ellipsis;
 `
 
+export const NavIcon = styled(FontAwesomeIcon)`
+  color: ${navAccentColor};
+  &:hover { cursor: pointer}
+`
+
 /* Navbar */
 export const CustomNavbar = styled(Navbar)`
   background: ${navBackgroundColor};
   font-size: inherit;
-`
-
-export const NavIcon = styled(FontAwesomeIcon)`
-  color: ${navAccentColor};
 `
 
 export const CustomNavbarBrand = styled(Brand)`
@@ -48,7 +50,7 @@ export const CustomNavbarToggle = styled(Toggle)`
   font-size: inherit;
 `
 
-export const CustomNavbarLink = styled(Nav.Link)`
+export const CustomNavbarLink = styled(Link)`
   color: ${navTextColor};
   margin-right: 10px;
   font-size: inherit;
@@ -57,4 +59,16 @@ export const CustomNavbarLink = styled(Nav.Link)`
     padding-top: 5px;
     padding-bottom: 10px;
   }
+`
+
+/* QuoteList */
+export const CustomCard = styled(Card)`
+  font-size: inherit;
+  &:hover {
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+  }
+`
+
+export const CustomCardBody = styled(Body)`
+  font-size: inherit;
 `

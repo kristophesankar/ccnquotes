@@ -33,7 +33,6 @@ class NavigationBar extends Component {
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ml-auto'>
             <CustomNavbarLink
-              bsPrefix='nav-link bg-nav-container__link'
               className='showAllLink' as={NavLink} to='/'
             >
               <NavIcon className='bg-nav-container__logo--color' icon={faBook} />
@@ -46,7 +45,6 @@ class NavigationBar extends Component {
               </Tooltip>
             </CustomNavbarLink>
             <CustomNavbarLink
-              bsPrefix='nav-link bg-nav-container__link'
               className='createLink' as={NavLink} to='/create'
             >
               <NavIcon className='bg-nav-container__logo--color' icon={faPlus} />
