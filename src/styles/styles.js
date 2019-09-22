@@ -11,6 +11,7 @@ import { Title as PopoverTitle, Content as PopoverContent } from 'react-bootstra
 export const navTextColor = '#d1e8fa !important'
 export const navBackgroundColor = '#2369a3 !important'
 export const navAccentColor = '#6ED7D3 !important'
+export const errorColor = '#DC3030 !important'
 
 /* Styled Components */
 
@@ -24,6 +25,11 @@ export const Title = styled.h1`
 export const ActionButton = styled(Button)`
   background: ${navAccentColor};
   border-color: ${navAccentColor};
+`
+
+export const ActionButtonDelete = styled(Button)`
+  background: ${errorColor};
+  border-color: ${errorColor};
 `
 
 export const PanelTitle = styled.h5`

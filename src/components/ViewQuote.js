@@ -2,11 +2,15 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getQuote } from '../utils/api'
 import { withRouter } from 'react-router-dom'
-import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import { handleUpdateQuote, handleDeleteQuote } from '../actions/'
+import toast from 'toasted-notes'
+import 'toasted-notes/src/styles.css'
+import { Tooltip } from 'react-tippy'
+import { NavActionIcon, ActionButton, ActionButtonDelete } from '../styles/styles'
+import { faSave, faChevronLeft, faToggleOn, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 class ViewQuote extends Component {
   state = {
@@ -119,46 +123,74 @@ class ViewQuote extends Component {
 
             <Row className='justify-content-center'>
               <Col className='text-center' sm={12}>
-                <Button
-                  size='sm'
-                  variant='primary'
-                  className='m-1 backButton'
-                  onClick={event => {
-                    event.preventDefault()
-                    history.goBack()
-                  }}
-                  type=''
+                <Tooltip
+                  title='Click to go to last viewed page.'
+                  position='left'
+                  trigger='mouseenter'
+                  animation='shift'
                 >
-                  Back
-                </Button>
-                <Button
-                  size='sm'
-                  variant='primary'
-                  className='m-1 toggleButton'
-                  onClick={this.handleEnableEditing}
-                  type=''
+                  <ActionButton
+                    size='sm'
+                    variant='primary'
+                    className='m-1 backButton'
+                    onClick={event => {
+                      event.preventDefault()
+                      history.goBack()
+                    }}
+                    type=''
+                  >
+                    <NavActionIcon icon={faChevronLeft} /> Back
+                  </ActionButton>
+                </Tooltip>
+                <Tooltip
+                  title='Click to enable/disable the form for editing.'
+                  position='left'
+                  trigger='mouseenter'
+                  animation='shift'
                 >
-                  Toggle Editing
-                </Button>
-                <Button
-                  size='sm'
-                  variant='primary'
-                  className='m-1 updateButton'
-                  onClick={this.handleOnSubmit}
-                  type='submit'
-                  disabled={isDisabled}
+                  <ActionButton
+                    size='sm'
+                    variant='primary'
+                    className='m-1 toggleButton'
+                    onClick={this.handleEnableEditing}
+                    type=''
+                  >
+                    <NavActionIcon icon={faToggleOn} /> Toggle Editing
+                  </ActionButton>
+                </Tooltip>
+                <Tooltip
+                  title='Click to save the updated record.'
+                  position='left'
+                  trigger='mouseenter'
+                  animation='shift'
                 >
-                  Update / Save
-                </Button>
-                <Button
-                  size='sm'
-                  variant='primary'
-                  className='m-1 deleteButton'
-                  onClick={this.handleOnDelete}
-                  type='submit'
+                  <ActionButton
+                    size='sm'
+                    variant='primary'
+                    className='m-1 updateButton'
+                    onClick={this.handleOnSubmit}
+                    type='submit'
+                    disabled={isDisabled}
+                  >
+                    <NavActionIcon icon={faSave} /> Update / Save
+                  </ActionButton>
+                </Tooltip>
+                <Tooltip
+                  title='Caution! This will delete the current quote.'
+                  position='left'
+                  trigger='mouseenter'
+                  animation='shift'
                 >
-                  Delete
-                </Button>
+                  <ActionButtonDelete
+                    size='sm'
+                    variant='primary'
+                    className='m-1 deleteButton'
+                    onClick={this.handleOnDelete}
+                    type='submit'
+                  >
+                    <NavActionIcon icon={faTrashAlt} /> Delete
+                  </ActionButtonDelete>
+                </Tooltip>
               </Col>
             </Row>
           </Form>
