@@ -7,9 +7,14 @@ import FormControl from 'react-bootstrap/FormControl'
 import { NavLink } from 'react-router-dom'
 import { handleSearchData } from '../actions/'
 import { debounce } from 'lodash'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faBook, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
 import { Tooltip } from 'react-tippy'
+import {
+  CustomNavbar,
+  CustomNavbarBrand,
+  CustomNavbarToggle,
+  NavIcon, CustomNavbarLink
+} from '../styles/styles'
 
 class NavigationBar extends Component {
   // wait until user has typed before querying db
@@ -20,20 +25,18 @@ class NavigationBar extends Component {
 
   render () {
     return (
-      <Navbar bg='nav-container' expand='lg'>
-        <Navbar.Brand
-          bsPrefix='bg-nav-container__brand'
-          href='#home'
-        ><FontAwesomeIcon className='bg-nav-container__logo--color' icon={faQuoteRight} /> CCN Quotes
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls='basic-navbar-nav' />
+      <CustomNavbar variant='dark' expand='lg'>
+        <CustomNavbarBrand as={NavLink} to='/'>
+          <NavIcon icon={faQuoteRight} /> CCN Quotes
+        </CustomNavbarBrand>
+        <CustomNavbarToggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ml-auto'>
-            <Nav.Link
+            <CustomNavbarLink
               bsPrefix='nav-link bg-nav-container__link'
               className='showAllLink' as={NavLink} to='/'
             >
-              <FontAwesomeIcon className='bg-nav-container__logo--color' icon={faBook} />
+              <NavIcon className='bg-nav-container__logo--color' icon={faBook} />
               <Tooltip
                 title='Show all saved quotes.'
                 position='left'
@@ -41,12 +44,12 @@ class NavigationBar extends Component {
                 animation='shift'
               > Show all
               </Tooltip>
-            </Nav.Link>
-            <Nav.Link
+            </CustomNavbarLink>
+            <CustomNavbarLink
               bsPrefix='nav-link bg-nav-container__link'
               className='createLink' as={NavLink} to='/create'
             >
-              <FontAwesomeIcon className='bg-nav-container__logo--color' icon={faPlus} />
+              <NavIcon className='bg-nav-container__logo--color' icon={faPlus} />
               <Tooltip
                 title='Add a new quote.'
                 position='left'
@@ -54,7 +57,7 @@ class NavigationBar extends Component {
                 animation='shift'
               > Add
               </Tooltip>
-            </Nav.Link>
+            </CustomNavbarLink>
           </Nav>
           <Form inline>
             <FormControl
@@ -67,7 +70,7 @@ class NavigationBar extends Component {
             />
           </Form>
         </Navbar.Collapse>
-      </Navbar>
+      </CustomNavbar>
     )
   }
 }

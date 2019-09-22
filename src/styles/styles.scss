@@ -1,11 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,800&display=swap');
 
-/* Navbar Colors */
-$navTextColor: hsla(206,79,90,1);
-$navBackgroundColor: hsla(207,64,39,1);
-$navAccentColor: #6ED7D3;
+/* Colors */
 $primaryTextColor: #4b4d4e;
-
 
 html {
   font-size: 100%;
@@ -25,28 +21,6 @@ h2 { font-size: 2rem; }
 h3 { font-size: 1.5rem; }
 h4 { font-size: 1.375rem; }
 h5 { font-size: 1.25rem; }
-
-.bg-nav-container{
-  background: $navBackgroundColor;
-}
-
-.bg-nav-container__brand{
-  color: $navTextColor;
-  font-weight: 500;
-}
-
-.bg-nav-container__brand:hover{
-  text-decoration: none;
-  color: $navTextColor;
-}
-
-.bg-nav-container__link{
-  color: $navTextColor !important;
-}
-
-.bg-nav-container__logo--color{
-  color: $navAccentColor;
-}
 
 
 /*
