@@ -7,6 +7,7 @@ import reducer from './reducers'
 import middleware from './middleware'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/styles.scss'
+import 'react-tippy/dist/tippy.css'
 
 const store = createStore(reducer, middleware)
 

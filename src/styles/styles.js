@@ -12,7 +12,3 @@ export const TruncatedText = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
 `
-
-export const CustomCard = styled.div`
-  border: solid 1px #000;
-`
