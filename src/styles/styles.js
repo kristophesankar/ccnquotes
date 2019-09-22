@@ -72,3 +72,9 @@ export const CustomCard = styled(Card)`
 export const CustomCardBody = styled(Body)`
   font-size: inherit;
 `
+
+/* AllQuotesContainer */
+
+export const QuoteListContainer = styled.div`
+  padding: 5px;
+`

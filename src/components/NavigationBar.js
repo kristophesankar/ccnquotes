@@ -35,25 +35,25 @@ class NavigationBar extends Component {
             <CustomNavbarLink
               className='showAllLink' as={NavLink} to='/'
             >
-              <NavIcon className='bg-nav-container__logo--color' icon={faBook} />
               <Tooltip
                 title='Show all saved quotes.'
                 position='left'
                 trigger='mouseenter'
                 animation='shift'
-              > Show all
+              >
+                <NavIcon className='bg-nav-container__logo--color' icon={faBook} /> Show all
               </Tooltip>
             </CustomNavbarLink>
             <CustomNavbarLink
               className='createLink' as={NavLink} to='/create'
             >
-              <NavIcon className='bg-nav-container__logo--color' icon={faPlus} />
               <Tooltip
                 title='Add a new quote.'
                 position='left'
                 trigger='mouseenter'
                 animation='shift'
-              > Add
+              >
+                <NavIcon className='bg-nav-container__logo--color' icon={faPlus} /> Add
               </Tooltip>
             </CustomNavbarLink>
           </Nav>
