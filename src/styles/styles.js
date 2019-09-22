@@ -88,6 +88,7 @@ export const CustomCard = styled(Card)`
   font-size: inherit;
   &:hover {
     box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    cursor: pointer;
   }
 `
 
@@ -99,4 +100,23 @@ export const CustomCardBody = styled(Body)`
 
 export const DivContainer = styled.div`
   padding: 5px;
+`
+
+/* Quote Card */
+
+export const QuoteDetailsCard = styled(Card)`
+  border: none;
+`
+
+export const QuoteCardBody = styled.h2`
+  padding: 0px 10px 0px 10px;
+  font-weight: 300;
+`
+
+export const QuoteCardAuthor = styled.p`
+  padding: 0px 10px 0px 10px;
+`
+
+export const QuoteCardSource = styled.em`
+  padding: 0px 10px 0px 10px;
 `

@@ -1,22 +1,32 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Card from 'react-bootstrap/Card'
+import {
+  QuoteDetailsCard,
+  CustomCardBody,
+  QuoteCardBody,
+  QuoteCardAuthor,
+  QuoteCardSource
+} from '../styles/styles'
 
 const QuoteCard = props => {
   return (
-    <Card id='quoteCard' className='m-2'>
-      <Card.Body className='p-2'>
+    <QuoteDetailsCard id='quoteCard' className='m-2'>
+      <CustomCardBody className='p-2'>
         {props.quote.map(entry => (
           <div key={`quote-${entry.id}`}>
-            <div id='entryBody'>{entry.body}</div>
-            <br />
-            <div id='entryAuthor'>{entry.author}</div>
-            <br />
-            <div id='entrySource'>{entry.source}</div>
+            <QuoteCardBody id='entryBody'>&quot;{entry.body}&quot;</QuoteCardBody>
+            <QuoteCardAuthor id='entryAuthor'>by {entry.author}</QuoteCardAuthor>
+            <QuoteCardSource id='entrySource'>Source:&nbsp;
+              <i>
+                <a href={entry.source} target='_blank' rel='noopener noreferrer'>
+                  {entry.source}
+                </a>
+              </i>
+            </QuoteCardSource>
           </div>
         ))}
-      </Card.Body>
-    </Card>
+      </CustomCardBody>
+    </QuoteDetailsCard>
   )
 }
 
