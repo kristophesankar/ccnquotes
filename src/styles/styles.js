@@ -2,6 +2,7 @@
 import styled from 'styled-components'
 import Navbar, { Toggle, Brand } from 'react-bootstrap/Navbar'
 import Card, { Body } from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 import { Link } from 'react-bootstrap/Nav'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Title as PopoverTitle, Content as PopoverContent } from 'react-bootstrap/Popover'
@@ -20,6 +21,11 @@ export const Title = styled.h1`
   font-weight: bold;
 `
 
+export const ActionButton = styled(Button)`
+  background: ${navAccentColor};
+  border-color: ${navAccentColor};
+`
+
 export const PanelTitle = styled.h5`
   text-align: center;
   margin: 10px;
@@ -35,6 +41,11 @@ export const TruncatedText = styled.p`
 
 export const NavIcon = styled(FontAwesomeIcon)`
   color: ${navAccentColor};
+  &:hover { cursor: pointer}
+`
+
+export const NavActionIcon = styled(FontAwesomeIcon)`
+  color: #fff;
   &:hover { cursor: pointer}
 `
 
