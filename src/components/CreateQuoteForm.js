@@ -89,6 +89,9 @@ class CreateQuoteForm extends Component {
     /* Condition for dispatching quote submission */
     if (!error) {
       this.props.dispatch(handleSubmitQuote({ body, author, source }, history))
+      toast.notify('Quote saved!', {
+        position: 'top-right'
+      })
     }
   }
 

@@ -59,6 +59,24 @@
       "author": "Linus Torvalds",
       "body": "I'm doing a free operating system (just a hobby, won't be big and professional like GNU).",
       "source": "https://en.wikipedia.org/wiki/Linus_Torvalds"
+    },
+    {
+      "body": "This is a test quote",
+      "author": "Kristophe Sankar",
+      "source": "http://thisisasource.com",
+      "id": 11
+    },
+    {
+      "body": "This is a test quote",
+      "author": "Kristophe Sankar",
+      "source": "http://thisisasource.com",
+      "id": 12
+    },
+    {
+      "body": "test",
+      "author": "test",
+      "source": "test",
+      "id": 13
     }
   ]
 }
