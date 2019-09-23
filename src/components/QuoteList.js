@@ -17,7 +17,7 @@ class QuoteList extends Component {
     const { quotes, history, onHandleSelection } = this.props
     const { selectedCard } = this.state
     return (
-      <div>
+      <div id='quoteList'>
         {/* Show cards if there are items in the db and there were no
         * errors in querying. Else show a placeholder.
         */}
@@ -52,6 +52,7 @@ class QuoteList extends Component {
                       >
                         <NavIcon
                           icon={faEdit}
+                          className='navIcon'
                           key={`edit-btn-${quote.id}`}
                           onClick={() => {
                             history.push(`/quote/${quote.id}`)

@@ -42,8 +42,7 @@ describe('All Quotes Page', () => {
   })
 
   it('Should show QuoteList Card content', () => {
-    cy.get('#quoteListColumn')
-      .children()
+    cy.get('#quoteList')
       .children()
       .each(($el, index, $list) => {
         cy.get($el).should('have.class', 'card')
@@ -55,13 +54,12 @@ describe('All Quotes Page', () => {
           .find('p') // Should have preview text
         cy.get($el)
           .children()
-          .find('button') // Should have edit button
+          .find('.navIcon') // Should have edit button
       })
   })
 
   it('Should show selected QuoteList Card content', () => {
-    cy.get('#quoteListColumn')
-      .children()
+    cy.get('#quoteList')
       .children()
       .each(($el, index, $list) => {
         cy.get($el).should('have.class', 'card')
