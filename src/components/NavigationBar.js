@@ -63,7 +63,7 @@ class NavigationBar extends Component {
               as='input'
               onChange={(event) => this.handleOnChangeSearch(event.target.value)}
               placeholder='Type anything to search...'
-              className='mr-sm-2'
+              className='mr-sm-2 searchBar'
               size='sm'
             />
           </Form>
