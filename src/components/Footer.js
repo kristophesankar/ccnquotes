@@ -6,7 +6,9 @@ const Footer = props => {
   return (
     <FooterRow className='justify-content-center'>
       <Col className='text-center' sm={12}>
-        <FooterText>Made with <span aria-label='love-emoji' role='img'>❤️</span> by Arjuna Kristophe Sankar.</FooterText>
+        <FooterText>Made with&nbsp;
+          <span aria-label='love-emoji' role='img'>❤️</span> by Arjuna Kristophe Sankar.
+        </FooterText>
       </Col>
     </FooterRow>
   )
