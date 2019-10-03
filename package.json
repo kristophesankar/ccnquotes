@@ -30,7 +30,7 @@
   "scripts": {
     "start": "react-scripts start",
     "api": "json-server -p 3001 db.json",
-    "build": "react-scripts build",
+    "build": "react-scripts build && json-server -p 3001 db.json",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
