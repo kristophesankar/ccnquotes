@@ -1,22 +1,24 @@
 /* global fetch */
 
+const api = 'https://my-json-server.typicode.com/kristophesankar/quotesdb'
+
 // Get initial data from API (all quotes)
 export function getInitialData () {
-  return fetch('http://localhost:3001/quotes/')
+  return fetch(`${api}/quotes/`)
     .then(response => response.json())
     .then(data => data)
 }
 
 // get One quote
 export function getQuote (id) {
-  return fetch(`http://localhost:3001/quotes/${id}`)
+  return fetch(`${api}/quotes/${id}`)
     .then(response => response.json())
     .then(data => data)
 }
 
 // Save a new quote
 export function createNewQuote (data) {
-  return fetch('http://localhost:3001/quotes', {
+  return fetch(`${api}/quotes`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -27,7 +29,7 @@ export function createNewQuote (data) {
 
 // Update a quote
 export function updateExistingQuote (data) {
-  return fetch(`http://localhost:3001/quotes/${data.id}`, {
+  return fetch(`${api}/${data.id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
@@ -38,13 +40,13 @@ export function updateExistingQuote (data) {
 
 // Delete a quote
 export function deleteExistingQuote (data) {
-  return fetch(`http://localhost:3001/quotes/${data.id}`, {
+  return fetch(`${api}/quotes/${data.id}`, {
     method: 'DELETE'
   }).then(response => response.json())
 }
 
 export function getSearchData (query) {
-  return fetch(`http://localhost:3001/quotes?q=${query}`)
+  return fetch(`${api}/quotes?q=${query}`)
     .then(response => response.json())
     .then(data => data)
 }
