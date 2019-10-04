@@ -1,6 +1,6 @@
 /* global fetch */
 
-const api = 'https://my-json-server.typicode.com/kristophesankar/quotesdb'
+const api = 'https://quotesdb-f9bc1.firebaseapp.com/api/'
 
 // Get initial data from API (all quotes)
 export function getInitialData () {
