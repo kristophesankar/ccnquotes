@@ -1,6 +1,6 @@
 /* global fetch */
 
-const api = 'https://quotesdb-f9bc1.firebaseapp.com/api/'
+const api = 'https://quotesdb-f9bc1.firebaseapp.com/api'
 
 // Get initial data from API (all quotes)
 export function getInitialData () {
