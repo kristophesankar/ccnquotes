@@ -1,6 +1,6 @@
 /* global fetch */
 
-const api = 'https://my-json-server.typicode.com/kristophesankar/'
+const api = 'https://my-json-server.typicode.com/kristophesankar/quotesdb'
 
 
 // Get initial data from API (all quotes)
