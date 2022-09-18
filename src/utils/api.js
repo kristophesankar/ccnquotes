@@ -30,7 +30,7 @@ export function createNewQuote (data) {
 
 // Update a quote
 export function updateExistingQuote (data) {
-  return fetch(`${api}/${data.id}`, {
+  return fetch(`${api}/quotes/${data.id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
