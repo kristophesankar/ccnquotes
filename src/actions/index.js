@@ -61,7 +61,7 @@ export function handleSubmitQuote (data, history) {
       .then(quotes => {
         createNewQuote(data).then(response => {
           dispatch(createQuote(response))
-          history.push(`/quote/${response.id}`)
+          history.push(`/`)
         })
       })
       .catch(error => dispatch(getQuotesError(error)))
